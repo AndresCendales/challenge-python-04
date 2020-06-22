@@ -1,29 +1,26 @@
 def div(func):
-    # You have to code here!
-    pass
-
+    def wraper(*args, **kwargs):
+        return '<div>{}</div>'.format(func(*args, **kwargs))
+    return wraper
 
 def article(func):
-    # You have to code here!
-    pass
-
+    def wraper(*args, **kwargs):
+        return '<article>{}</article>'.format(func(*args, **kwargs))
+    return wraper
 
 def p(func):
-    # You have to code here!
-    pass
-
-
-# Here you must apply the decorators, uncomment this later
-# @div
-# @article
-# @p
+    def wraper(*args, **kwargs):
+        return '<p>{}</p>'.format(func(*args, **kwargs))
+    return wraper
+    
+@div
+@article
+@p
 def saludo(nombre):
     return f'¡Hola {nombre}, ¿Cómo estás?'
 
-
 def run():
     print(saludo('Jorge'))
-
 
 if __name__ == '__main__':
     run()
